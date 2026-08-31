@@ -1,12 +1,14 @@
 'use client';
 import React, { useState, useEffect, useCallback } from 'react';
 import { Chess } from 'chess.js';
-import { Chessboard } from 'react-chessboard';
+import { Chessboard as ChessboardComponent } from 'react-chessboard';
 import { THEMES, getTheme } from '@/lib/themes';
 import { MODELS, DEFAULT_MODEL, validModel } from '@/lib/models';
 import { SettingsPanel } from './SettingsPanel';
 import { ThemePicker } from './ThemePicker';
 import { MoveHistory } from './MoveHistory';
+
+const Chessboard = ChessboardComponent as any;
 
 interface Move {
   move: string;
@@ -145,7 +147,6 @@ export const GameApp: React.FC = () => {
       {/* Center: Board */}
       <div className="relative p-4 bg-white/5 rounded-[2rem] shadow-inner border border-white/10 backdrop-blur-sm">
         <div className="w-[320px] h-[320px] sm:w-[500px] sm:h-[500px]">
-          {/* @ts-ignore */}
           <Chessboard
             position={game.fen()}
             onPieceDrop={onDrop}
