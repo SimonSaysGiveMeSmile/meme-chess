@@ -139,14 +139,14 @@ export const GameApp: React.FC = () => {
           model={model} setModel={setModel}
         />
 
-        <ThemePicker currentTheme={themeId} setThemeId={setThemeId} />
+        <ThemePicker currentTheme={themeId} setTheme={setThemeId} />
       </div>
 
       {/* Center: Board */}
       <div className="relative p-4 bg-white/5 rounded-[2rem] shadow-inner border border-white/10 backdrop-blur-sm">
         <div className="w-[320px] h-[320px] sm:w-[500px] sm:h-[500px]">
           <Chessboard
-            position={game.fen()}
+            boardPosition={game.fen()}
             onPieceDrop={onDrop}
             boardOrientation="white"
             customDarkSquareStyle={{ backgroundColor: theme.boardColor }}
