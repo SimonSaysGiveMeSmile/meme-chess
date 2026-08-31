@@ -145,8 +145,9 @@ export const GameApp: React.FC = () => {
       {/* Center: Board */}
       <div className="relative p-4 bg-white/5 rounded-[2rem] shadow-inner border border-white/10 backdrop-blur-sm">
         <div className="w-[320px] h-[320px] sm:w-[500px] sm:h-[500px]">
+          {/* @ts-ignore */}
           <Chessboard
-            boardPosition={game.fen()}
+            position={game.fen()}
             onPieceDrop={onDrop}
             boardOrientation="white"
             customDarkSquareStyle={{ backgroundColor: theme.boardColor }}
